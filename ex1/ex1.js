@@ -17,12 +17,6 @@ function ex1Calc() {
     \\]
     `
 
-    // \pi:\left\{\begin{array}{ccc}
-    //     x = 1 + 4t \\
-    //     y = 2 + 5t \\
-    //     z = 3 + 6t
-    // \end{array}\right.
-
     ex1_resposta.innerText = answer
     MathJax.typeset()
 }

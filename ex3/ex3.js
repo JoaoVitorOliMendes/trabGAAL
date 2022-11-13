@@ -34,20 +34,28 @@ function ex3Calc(){
         }
         var n = [ex3_field1Val, ex3_field2Val, ex3_field3Val]
         var p0 = [ex3_field5Val, ex3_field6Val, ex3_field7Val]
-        var reta = p0.map((i, j) => i - p1[j])
+        var p1p0 = p0.map((i, j) => i - p1[j])
 
-        var pEscalar = Math.abs(reta.map((i, j) => i*n[j]).reduce((total, current) => total + current, 0))
-        var vAbs = n.map((i) => i*i).reduce((total, current) => total + current, 0)
+        var pEscalar = Math.abs(p1p0.map((i, j) => i*n[j]).reduce((total, current) => total + current, 0))
+        var vAbs = valorAbs(n)
         var vAbsSqrt = Math.sqrt(vAbs)
 
-        if(Number.isInteger(vAbsSqrt)){
-            vAbs = vAbsSqrt
-        }else {
-            vAbs = `\\sqrt[2]${vAbs}`
+        var resposta = '';
+        
+        if(isNaN(pEscalar/vAbsSqrt)){
+            resposta = '0'
+        }else if(Number.isInteger(pEscalar/vAbsSqrt)){
+            resposta = pEscalar/vAbsSqrt
+        }else{
+            if(Number.isInteger(vAbsSqrt)){
+                resposta = `\\frac{${pEscalar}}{${vAbsSqrt}}`
+            }else {
+                resposta = `\\frac{${pEscalar}}{\\sqrt[2]${vAbs}}`
+            }
         }
         ex3_resposta.innerHTML = `
             \\[
-                \\frac{${pEscalar}}{${vAbs}}
+                \\operatorname{dist}(P_0, \\pi) = ${resposta}
             \\]
         `
         MathJax.typeset()
@@ -70,7 +78,6 @@ function validateInput(){
         ex3_field4.value = 0
         ex3_field4.disabled = true
     }else {
-        ex3_field4.value = ''
         ex3_field4.disabled = false
     }
 }

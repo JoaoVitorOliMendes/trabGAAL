@@ -28,7 +28,7 @@ function ex2Calc() {
 
         // ex2_field2 = ex2_field1 == '' || ex2_field2 == '' ? ex2_field2 : ((ex2_field2[0] == '-') ? ex2_field2 : ' + '+ex2_field2)
         // ex2_field3 = ex2_field2 == '' || ex2_field3 == '' ? ex2_field3 : ((ex2_field3[0] == '-') ? ex2_field3 : ' + '+ex2_field3)
-        ex2_resposta.innerHTML = `\\[\\pi: (${ex2_field1}) + (${ex2_field2}) + (${ex2_field3}) + (${d})\\]`
+        ex2_resposta.innerHTML = `\\[\\pi: (${ex2_field1})x + (${ex2_field2})y + (${ex2_field3})z + (${d}) = 0\\]`
         MathJax.typeset()
     }else {
         ex2_resposta.innerHTML = 'Por favor digite números válidos'

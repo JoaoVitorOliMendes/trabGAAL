@@ -24,18 +24,21 @@ function ex3Calc(){
             return !isNaN(value)
         })
     ){
+        if(produtoEscalar([ex3_field1Val, ex3_field2Val, ex3_field3Val], [ex3_field5Val, ex3_field6Val, ex3_field7Val]) + ex3_field4Val == 0){
+            ex3_resposta.innerHTML = `O ponto pertence ao plano`
+            return
+        }
         var p1 = [0, 0, 0]
         if(ex3_field3Val != 0){
             p1 = [0, 0, -1*(ex3_field4Val/ex3_field3Val)]
         }else if(ex3_field2Val != 0){
             p1 = [0, -1*(ex3_field4Val/ex3_field2Val), 0]
         }else if(ex3_field1Val != 0){
-            p1 = [-1*(ex3_field4Val/ex1_field1Val), 0, 0]
+            p1 = [-1*(ex3_field4Val/ex3_field1Val), 0, 0]
         }
         var n = [ex3_field1Val, ex3_field2Val, ex3_field3Val]
         var p0 = [ex3_field5Val, ex3_field6Val, ex3_field7Val]
         var p1p0 = subtractPoints(p0, p1)
-
         var pEscalar = produtoEscalar(p1p0, n)
         var vAbs = valorAbs(n)
         var vAbsSqrt = Math.sqrt(vAbs)

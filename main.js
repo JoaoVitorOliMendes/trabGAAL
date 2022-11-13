@@ -1,6 +1,22 @@
 function exClear(ex) {
     let ex_resposta = document.getElementById(`ex${ex}_resposta`)
-    ex_resposta.innerHTML = ''
+
+    switch(ex){
+        case 1: ex_resposta.innerHTML = ` \\[
+                \\pi:\\left\\{\\begin{array}{ccc}
+                x = x_0 + at \\\\
+                y = y_0 + bt \\\\
+                z = z_0 + ct
+                \\end{array}\\right.
+            \\]
+        `
+        case 2: ex_resposta.innerHTML = `\\(\\pi: ax + by + cz + d = 0\\)`
+        case 3: ex_resposta.innerHTML = `\\(\\operatorname{dist}(P_0, \\pi) = x\\)`
+        case 4: ex_resposta.innerHTML = `\\(\\operatorname{dist}(P_0, r) = x\\)`
+        case 5: ex_resposta.innerHTML = `\\(\\operatorname{dist}(\\pi_1, \\pi_2) = x\\)`
+        case 6: ex_resposta.innerHTML = `\\(\\operatorname{dist}(P_0, r) = x\\)`
+    }
+    MathJax.typeset()
 }
 
 function valorAbs(val){

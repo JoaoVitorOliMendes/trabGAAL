@@ -28,6 +28,12 @@ function ex4Calc(){
             return !isNaN(value)
         })
     ){
+        var t = new Set([(ex4_field7Val - ex4_field1Val)/ex4_field2Val, (ex4_field8Val - ex4_field3Val)/ex4_field4Val, (ex4_field9Val - ex4_field5Val)/ex4_field6Val])
+        t.delete(NaN)
+        if(t.size == 1){
+            ex4_resposta.innerHTML = `O ponto pertence a reta`
+            return
+        }
         var p0 = [ex4_field7Val, ex4_field8Val, ex4_field9Val]
         var p1 = [ex4_field1Val, ex4_field3Val, ex4_field5Val]
         var v = [ex4_field2Val, ex4_field4Val, ex4_field6Val]

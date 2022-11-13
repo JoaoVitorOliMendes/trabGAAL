@@ -34,9 +34,9 @@ function ex3Calc(){
         }
         var n = [ex3_field1Val, ex3_field2Val, ex3_field3Val]
         var p0 = [ex3_field5Val, ex3_field6Val, ex3_field7Val]
-        var p1p0 = p0.map((i, j) => i - p1[j])
+        var p1p0 = subtractPoints(p0, p1)
 
-        var pEscalar = Math.abs(p1p0.map((i, j) => i*n[j]).reduce((total, current) => total + current, 0))
+        var pEscalar = produtoEscalar(p1p0, n)
         var vAbs = valorAbs(n)
         var vAbsSqrt = Math.sqrt(vAbs)
 

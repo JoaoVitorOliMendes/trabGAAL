@@ -31,7 +31,7 @@ function ex4Calc(){
         var p0 = [ex4_field7Val, ex4_field8Val, ex4_field9Val]
         var p1 = [ex4_field1Val, ex4_field3Val, ex4_field5Val]
         var v = [ex4_field2Val, ex4_field4Val, ex4_field6Val]
-        var p1p0 = p0.map((i, j) => i - p1[j])
+        var p1p0 = subtractPoints(p0, p1)
 
         var valorAbsProdEsc = valorAbs(produtoVetorial(v, p1p0))
         var valorAbsReta = valorAbs(v)
